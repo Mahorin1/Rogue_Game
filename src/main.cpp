@@ -1,12 +1,8 @@
-
-
 	#include "states/menu.hpp"
     #include "physics.hpp"
     #include "PCG/pcg_basic.h"
     #include <time.h>
     using namespace sf;
-
-
 
 	int main() {
 		ContextSettings GL_Config;
@@ -53,4 +49,3 @@
 		}
         return 0;
 	}
-
