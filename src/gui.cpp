@@ -1,11 +1,11 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
     #include <gui.hpp>
 
     using namespace sf;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     Element::Element(Vector2f pos)
     : m_visible(true) { m_sprite.setPosition(pos); }
 
@@ -26,9 +26,9 @@
     void Element::setSize(float s) { m_sprite.setScale(s, s); }
 
     void Element::draw(RenderWindow& w) { if (m_visible) { w.draw(m_sprite); } }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     Panel::Panel(Vector2f pos, Vector2f dims)
     : Element(pos), m_isHover(false), m_hoverSwitch(false), m_dims(dims) {
         m_sprite.setOrigin(dims/2.f);
@@ -66,9 +66,9 @@
         } else if (!m_isHover && m_hoverSwitch)
         { callHover(false); }
     }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     Button::Button(Vector2f pos, Vector2f dims, bool constant)
     : Panel(pos, dims), m_isPressed(false), m_pressedSwitch(false), m_constant(constant) {}
 
@@ -89,5 +89,4 @@
         } else if (!b && m_isPressed && !m_constant)
         { callPressed(false); }
     }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

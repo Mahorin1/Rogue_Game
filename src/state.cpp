@@ -1,21 +1,21 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
     #include <state.hpp>
 
     using namespace sf;
     using namespace std;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     State::State(StateManager& state_man, ResourceManager& res_man , RenderWindow& window, const bool replace)
     : m_state_man(state_man), m_res_man(res_man), m_window(window), m_replacing(replace) {}
 
     unique_ptr<State> State::next() { return move( m_next ); }
 
     bool State::isReplacing() { return m_replacing; }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     StateManager::StateManager(): m_resume{ false }, m_running{ false }
     { cout << "StateManager Init\n"; }
 
@@ -61,5 +61,4 @@
     bool StateManager::running() { return m_running; }
 
     void StateManager::quit() { m_running = false; }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

@@ -1,13 +1,13 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
 	#pragma once
 	#include "state.hpp"
 	#include "gui.hpp"
 	#include "audio.hpp"
 	#include "utils.hpp"
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
 	class MenuState final : public State {
         public:
             MenuState(StateManager& state_man, ResourceManager& res_man , sf::RenderWindow& window, bool replace = true);
@@ -52,5 +52,4 @@
             float m_titlezoom_min;
             float m_titlezoom_max;
 	};
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

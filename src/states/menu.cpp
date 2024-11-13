@@ -1,12 +1,12 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
     #include "states/menu.hpp"
 
     using namespace sf;
     using namespace std;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     MenuState::MenuState(StateManager& state_man, ResourceManager& res_man, RenderWindow& window, const bool replace)
     : State(state_man, res_man, window, replace) {
         m_background_color.r = 35;
@@ -310,5 +310,4 @@
             m_window.draw(m_blackScreen);
         m_window.display();
     }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

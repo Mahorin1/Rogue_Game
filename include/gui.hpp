@@ -1,5 +1,5 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
 	#pragma once
     #include <functional>
     #include <unordered_map>
@@ -7,9 +7,9 @@
 
     using Event_CB = std::function<void(bool)>;
 	enum class GuiEvent { Hover, Pressed };
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     class Element {
         public:
             Element(sf::Vector2f pos);
@@ -43,9 +43,9 @@
             bool m_visible;
             sf::Sprite m_sprite;
     };
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
 	class Panel : public Element {
         public:
             Panel(sf::Vector2f pos, sf::Vector2f dims);
@@ -74,9 +74,9 @@
             std::unordered_map<GuiEvent, Event_CB> m_events;
             bool m_haveEvent(GuiEvent E) { return (m_events.count(E) > 0); }
 	};
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
 	class Button : public Panel {
         public:
             Button(sf::Vector2f pos, sf::Vector2f dims, bool constant = false);
@@ -91,5 +91,4 @@
             bool m_isPressed;
             bool m_pressedSwitch;
 	};
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

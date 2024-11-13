@@ -1,5 +1,5 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
     #include <audio.hpp>
     #include <vector>
     #include <set>
@@ -13,9 +13,9 @@
     static vector<Sound> LstSound;
     static set<int> FreeIndices;
     static int SoundLimit;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     void InitSoundVec(int limit) {
         SoundLimit = (limit > MAX_SOUND) ? MAX_SOUND : limit;
         CleanSoundVec();
@@ -57,5 +57,5 @@
                 return s.getStatus() != SoundSource::Stopped;
             });
     }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+
+

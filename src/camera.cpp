@@ -1,11 +1,11 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
     #include "camera.hpp"
 
     using namespace sf;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     Camera::Camera(): m_shakePos(ZeroVec2f), m_angle(0.f), m_zoom(1.f),
     m_targetMode(false), m_target(ZeroVec2f), m_shakeActive(false),
     m_pos(ZeroVec2f) {}
@@ -62,5 +62,4 @@
 
     Vector2f Camera::getMouse()
     { return toCamera(Mouse::getPosition(*m_window)); }
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+

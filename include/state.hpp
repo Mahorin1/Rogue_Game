@@ -1,5 +1,5 @@
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
 	#pragma once
     #include <stack>
     #include <memory>
@@ -7,9 +7,9 @@
     #include <stdexcept>
     #include <unordered_map>
     #include "SFML/Graphics.hpp"
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     class ResourceManager {
         public:
             template <typename ResType>
@@ -39,11 +39,11 @@
         private:
             std::unordered_map<std::string, void*> m_resources;
     };
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     class StateManager;
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
     class State {
         public:
             State(StateManager& state_man, ResourceManager& res_man , sf::RenderWindow& window, bool replace = true);
@@ -74,9 +74,9 @@
             std::unique_ptr<State> m_next;
             bool m_replacing;
     };
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
-//~~~~~~~~~~~~~~~~~~~~~~~~//
+
+
+
     class StateManager {
         public:
             StateManager();
@@ -110,5 +110,4 @@
             std::stack<std::unique_ptr<State>> m_states;
             bool m_resume, m_running;
     };
-//~~~~~~~~~~~~~~~~~~~~~~~~//
-//==============================================================//
+
