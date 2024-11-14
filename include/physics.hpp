@@ -1,60 +1,60 @@
+#pragma once
+#include "box2d/box2d.h"
+#include "SFML/System/Vector2.hpp"
 
+#define B2_LENGTH_UNIT 128.f
 
-    #pragma once
-    #include "box2d/box2d.h"
-    #include "SFML/System/Vector2.hpp"
-    
-    #define B2_LENGTH_UNIT 128.f
+static inline sf::Vector2f toSFVec(b2Vec2 b2_vec)
+{
+    return {b2_vec.x, b2_vec.y};
+}
+static inline b2Vec2 toB2Vec(sf::Vector2f sf_vec)
+{
+    return {sf_vec.x, sf_vec.y};
+}
 
+extern b2WorldId WorldID;
 
+b2Polygon NewRect(float width, float height);
 
-    static inline sf::Vector2f toSFVec(b2Vec2 b2_vec)
-    { return {b2_vec.x, b2_vec.y}; }
-    static inline b2Vec2 toB2Vec(sf::Vector2f sf_vec)
-    { return {sf_vec.x, sf_vec.y}; }
+b2Polygon NewRoundRect(float width, float height, float radius);
 
-    extern b2WorldId WorldID;
+b2Polygon NewBox(float side);
 
-    b2Polygon NewRect(float width, float height);
+b2Polygon NewRoundBox(float side, float r);
 
-    b2Polygon NewRoundRect(float width, float height, float radius);
+b2Circle NewCirc(float radius);
 
-    b2Polygon NewBox(float side);
+b2Circle NewOffsetCirc(float offsetX, float offsetY, float radius);
 
-    b2Polygon NewRoundBox(float side, float r);
+b2Capsule NewCapsule(float radius, float dist, float angle);
 
-    b2Circle NewCirc(float radius);
+b2BodyId NewDefaultBody();
 
-    b2Circle NewOffsetCirc(float offsetX, float offsetY, float radius);
+b2BodyId NewBody(b2BodyType type, b2Vec2 pos, float angle);
 
-    b2Capsule NewCapsule(float radius, float dist, float angle);
+void AddPoly(b2BodyId body_id, b2ShapeDef *shape_def, b2Polygon poly);
 
-    b2BodyId NewDefaultBody();
+void AddCirc(b2BodyId body_id, b2ShapeDef *shape_def, b2Circle circ);
 
-    b2BodyId NewBody(b2BodyType type, b2Vec2 pos, float angle);
+void AddCaps(b2BodyId body_id, b2ShapeDef *shape_def, b2Capsule caps);
 
-    void AddPoly(b2BodyId body_id, b2ShapeDef* shape_def, b2Polygon poly);
+void LinearStiffness(float *stiffness, float *damping,
+                     float frequencyHertz, float dampingRatio,
+                     float massA, float massB);
 
-    void AddCirc(b2BodyId body_id, b2ShapeDef* shape_def, b2Circle circ);
+bool CanGrab();
 
-    void AddCaps(b2BodyId body_id, b2ShapeDef* shape_def, b2Capsule caps);
+void TryGrab(sf::Vector2f pos);
 
-    void LinearStiffness( float* stiffness, float* damping, 
-                          float frequencyHertz, float dampingRatio,
-                          float massA, float massB );
+void UpdateGrab(sf::Vector2f pos);
 
-    bool CanGrab();
+void StopGrab();
 
-    void TryGrab(sf::Vector2f pos);
+void InitWorld(float gx, float gy, float step, int substep);
 
-    void UpdateGrab(sf::Vector2f pos);
+void SetWorldStep(float step, int substep);
 
-    void StopGrab();
+void UpdateWorld(float dt, float speed);
 
-    void InitWorld(float gx, float gy, float step, int substep);
-
-    void SetWorldStep(float step, int substep);
-
-    void UpdateWorld(float dt, float speed);
-
-    void DestroyWorld();
+void DestroyWorld();

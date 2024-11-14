@@ -46,25 +46,25 @@
 /// Prototype for user allocation function
 ///	@param size the allocation size in bytes
 ///	@param alignment the required alignment, guaranteed to be a power of 2
-typedef void* b2AllocFcn( unsigned int size, int alignment );
+typedef void *b2AllocFcn(unsigned int size, int alignment);
 
 /// Prototype for user free function
 ///	@param mem the memory previously allocated through `b2AllocFcn`
-typedef void b2FreeFcn( void* mem );
+typedef void b2FreeFcn(void *mem);
 
 /// Prototype for the user assert callback. Return 0 to skip the debugger break.
-typedef int b2AssertFcn( const char* condition, const char* fileName, int lineNumber );
+typedef int b2AssertFcn(const char *condition, const char *fileName, int lineNumber);
 
 /// This allows the user to override the allocation functions. These should be
 ///	set during application startup.
-B2_API void b2SetAllocator( b2AllocFcn* allocFcn, b2FreeFcn* freeFcn );
+B2_API void b2SetAllocator(b2AllocFcn *allocFcn, b2FreeFcn *freeFcn);
 
 /// @return the total bytes allocated by Box2D
-B2_API int b2GetByteCount( void );
+B2_API int b2GetByteCount(void);
 
 /// Override the default assert callback
 ///	@param assertFcn a non-null assert callback
-B2_API void b2SetAssertFcn( b2AssertFcn* assertFcn );
+B2_API void b2SetAssertFcn(b2AssertFcn *assertFcn);
 
 /// Version numbering scheme.
 /// See https://semver.org/
@@ -81,7 +81,7 @@ typedef struct b2Version
 } b2Version;
 
 /// Get the current version of Box2D
-B2_API b2Version b2GetVersion( void );
+B2_API b2Version b2GetVersion(void);
 
 /**@}*/
 
@@ -89,9 +89,9 @@ B2_API b2Version b2GetVersion( void );
 // Timer for profiling. This has platform specific code and may not work on every platform.
 typedef struct b2Timer
 {
-#if defined( _WIN32 )
+#if defined(_WIN32)
 	int64_t start;
-#elif defined( __linux__ ) || defined( __APPLE__ )
+#elif defined(__linux__) || defined(__APPLE__)
 	unsigned long long start_sec;
 	unsigned long long start_usec;
 #else
@@ -99,15 +99,15 @@ typedef struct b2Timer
 #endif
 } b2Timer;
 
-B2_API b2Timer b2CreateTimer( void );
-B2_API int64_t b2GetTicks( b2Timer* timer );
-B2_API float b2GetMilliseconds( const b2Timer* timer );
-B2_API float b2GetMillisecondsAndReset( b2Timer* timer );
-B2_API void b2SleepMilliseconds( int milliseconds );
-B2_API void b2Yield( void );
+B2_API b2Timer b2CreateTimer(void);
+B2_API int64_t b2GetTicks(b2Timer *timer);
+B2_API float b2GetMilliseconds(const b2Timer *timer);
+B2_API float b2GetMillisecondsAndReset(b2Timer *timer);
+B2_API void b2SleepMilliseconds(int milliseconds);
+B2_API void b2Yield(void);
 
 // Simple djb2 hash function for determinism testing
 #define B2_HASH_INIT 5381
-B2_API uint32_t b2Hash( uint32_t hash, const uint8_t* data, int count );
+B2_API uint32_t b2Hash(uint32_t hash, const uint8_t *data, int count);
 
 //! @endcond
